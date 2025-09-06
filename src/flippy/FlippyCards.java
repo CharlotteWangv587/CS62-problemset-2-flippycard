@@ -114,19 +114,45 @@ public class FlippyCards {
 		return 0;
 	}
 
-
-	//TODO: Add a toString method here!
+	@Override
 	public String toString(){
 		String result = "";
-		for (int i = 0; i < cards.length; i++){
-			if (cards[i].isFaceUp()){
-				result += cards[i].toString() + " (face up)\n";
+		for(int i = 0; i< cards.length; i++){
+			if(i!= cards.length-1){
+				if(cards[i].isFaceUp()){
+				result += cards[i].toString() + " | ";
+				}
+				else{
+				result += "FACE-DOWN | ";
+				}
 			}
 			else{
-				result += "Card " + (i+1) + " (face down)\n";
+				if(cards[i].isFaceUp()){
+					result += cards[i].toString();
+				}
+				else{
+					result += "FACE-DOWN";
+				}	
 			}
 		}
 		return result;
 	}
 
+	public static void main(String[] args){
+		FlippyCards game = new FlippyCards(5);
+		game.cards[0] = new Card(1, "hearts");
+		game.cards[1] = new Card(13, "spades");
+		game.cards[2] = new Card(5, "diamonds");
+		game.cards[3] = new Card(10, "clubs");
+		game.cards[4] = new Card(7, "hearts");
+
+		System.out.println(game);
+		System.out.println("Optimal score: " + game.calculateOptimalScore());
+		
+		game.flipCard(0);
+		game.flipCard(2);
+		System.out.println(game);
+		System.out.println("Face up total: " + game.faceUpTotal());
+		System.out.println("Face down total: " + game.faceDownTotal());
+	}
 }
