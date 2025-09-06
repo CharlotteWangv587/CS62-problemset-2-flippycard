@@ -8,6 +8,7 @@ package flippy;
  * their face value, Jack, Queen and King 10 and Ace 11.
  * 
  * @author 
+ * Charlotte Wang
  *
  */
 public class FlippyCards {

@@ -4,7 +4,8 @@ package flippy;
  * A card class representing a standard playing card with
  * numbers 2-10, Jack, Queen, King, Ace and four suits.
  * 
- *
+ * @author 
+ * Charlotte Wang
  */
 public class Card {
 	// min/max for the card number range
