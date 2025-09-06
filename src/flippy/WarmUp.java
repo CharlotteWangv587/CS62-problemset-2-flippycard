@@ -31,11 +31,7 @@ public class WarmUp {
 	public static double[] addArraysSameLength(double[] array1, double[] array2){
 		double[] sumOf1and2 = new double[array1.length];
 		for (int i =0; i<array1.length; i++){
-			for(double item1:array1){
-				for(double item2:array2){
-					sumOf1and2[i] = item1+item2;
-				}
-			}
+			sumOf1and2[i] = array1[i] + array2[i];
 		}
 		return sumOf1and2;
 	}
@@ -63,5 +59,6 @@ public class WarmUp {
 		System.out.println("Before: " + Arrays.toString(words));
 		reverseArray(words);
 		System.out.println("After: " + Arrays.toString(words));
+
 	}
 }
