@@ -12,6 +12,7 @@ package flippy;
  */
 public class FlippyCards {
 	private Card[] cards; // the cards for the game
+	private CardDealer dealer;
 	
 
 	/**
@@ -22,11 +23,10 @@ public class FlippyCards {
 	 */
 	public FlippyCards(int numCards){
 		cards = new Card[numCards];
-		cards[0] = new Card(1, "hearts");
-		cards[1] = new Card(13, "spades");
-		cards[2] = new Card(5, "diamonds");
-		cards[3] = new Card(10, "clubs");
-		cards[4] = new Card(7, "hearts");
+		dealer = new CardDealer(1);
+		for(int i = 0; i < numCards; i++){
+			cards[i] = dealer.next();
+		}
 	}
 
 	/**

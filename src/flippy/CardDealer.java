@@ -71,9 +71,9 @@ public class CardDealer{
 	}
 	
 	public static void main(String[] args){
-		CardDealer dealer = new CardDealer(2);
+		CardDealer dealer = new CardDealer(1);
 		
-		for( int i = 0; i < 100; i++ ){
+		for( int i = 0; i < 1; i++ ){
 			System.out.println(dealer.next());
 		}
 	}
