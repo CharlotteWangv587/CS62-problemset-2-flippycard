@@ -161,7 +161,7 @@ public class Card {
 	 * @return whether or not the card is red
 	 */
 	public boolean isRedCard(){
-		if (getSuit().equals("hearts") && getSuit().equals("diamonds")){
+		if (getSuit().equals("hearts") || getSuit().equals("diamonds")){
 			return true;
 
 		}
