@@ -41,7 +41,7 @@ public class WarmUp {
 	}
 	
 		
-	// TODO: write the reverseArray method, including method header and JavaDoc comments
+	
 	/**
 	 * reverse the order of items in an given array of Strings
 	 * 
