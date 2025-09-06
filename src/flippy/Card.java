@@ -128,8 +128,31 @@ public class Card {
 	 * @return the flippy card value
 	 */
 	public int getFlippyCardValue(){
-		//TODO: Fill in good stuff here!
-		return 0;
+		if (isRedCard()){
+			if(getNumber().equals("Ace")){
+				return 11;
+			}
+			else if(getNumber().equals("Jack") || getNumber().equals("Queen") || getNumber().equals("King")){
+				return 10;
+			}
+			else{
+				return Integer.parseInt(getNumber());
+			}
+
+		}
+
+		else{
+			if(getNumber().equals("Ace")){
+				return -11;
+			}
+			else if(getNumber().equals("Jack") || getNumber().equals("Queen") || getNumber().equals("King")){
+				return -10;
+			}
+			else{
+				return -Integer.parseInt(getNumber());
+			}
+
+		}
 	}
 	
 	/**
@@ -138,7 +161,12 @@ public class Card {
 	 * @return whether or not the card is red
 	 */
 	public boolean isRedCard(){
-		//TODO: Fill in good stuff here!
-		return false;
+		if (getSuit().equals("hearts") && getSuit().equals("diamonds")){
+			return true;
+
+		}
+		else{
+			return false;
+		}
 	}
 }
