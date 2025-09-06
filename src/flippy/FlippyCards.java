@@ -1,5 +1,4 @@
 package flippy;
-
 /**
  * Keeps track of the cards and and answers questions
  * for the flippy card game. 
@@ -13,6 +12,7 @@ package flippy;
  */
 public class FlippyCards {
 	private Card[] cards; // the cards for the game
+	
 
 	/**
 	 * Create a new flippy card game state, which consists of the
@@ -22,6 +22,11 @@ public class FlippyCards {
 	 */
 	public FlippyCards(int numCards){
 		cards = new Card[numCards];
+		cards[0] = new Card(1, "hearts");
+		cards[1] = new Card(13, "spades");
+		cards[2] = new Card(5, "diamonds");
+		cards[3] = new Card(10, "clubs");
+		cards[4] = new Card(7, "hearts");
 	}
 
 	/**
@@ -91,12 +96,13 @@ public class FlippyCards {
 	 * @return the flippy card score for faceup cards
 	 */
 	public int faceUpTotal(){
+		int sumUps = 0;
 		for(Card card : cards){
 			if (card.isFaceUp()){
-				return card.getFlippyCardValue();
+				sumUps += card.getFlippyCardValue();
 			}
 		}
-		return 0;
+		return sumUps;
 	}
 
 	/**
@@ -106,12 +112,13 @@ public class FlippyCards {
 	 * @return the flippy card score for facedown cards
 	 */
 	public int faceDownTotal(){
+		int sumDowns = 0;
 		for(Card card : cards){
 			if (!card.isFaceUp()){
-				return card.getFlippyCardValue();
+				sumDowns += card.getFlippyCardValue();
 			}
 		}
-		return 0;
+		return sumDowns;
 	}
 
 	@Override
@@ -140,11 +147,6 @@ public class FlippyCards {
 
 	public static void main(String[] args){
 		FlippyCards game = new FlippyCards(5);
-		game.cards[0] = new Card(1, "hearts");
-		game.cards[1] = new Card(13, "spades");
-		game.cards[2] = new Card(5, "diamonds");
-		game.cards[3] = new Card(10, "clubs");
-		game.cards[4] = new Card(7, "hearts");
 
 		System.out.println(game);
 		System.out.println("Optimal score: " + game.calculateOptimalScore());
