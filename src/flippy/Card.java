@@ -171,6 +171,10 @@ public class Card {
 	}
 
 	public static void main(String[] args){
+		/*
+		 * test out the card class for current face-up/face-down status,
+		 * red/black status, and flippy card value
+		 */
 		Card card1 = new Card(1, "hearts");
 		System.out.println(card1);
 		System.out.println("Card value: " + card1.getFlippyCardValue());

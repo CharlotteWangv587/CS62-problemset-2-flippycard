@@ -2,6 +2,9 @@ package flippy;
 
 import java.util.Scanner;
 
+/**
+ * the class to run a game of flippy cards
+ */
 public class FlippyCardGame {
 	private static final int NUM_CARDS = 5;
 	

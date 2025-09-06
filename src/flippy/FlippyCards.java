@@ -145,16 +145,5 @@ public class FlippyCards {
 		return result;
 	}
 
-	public static void main(String[] args){
-		FlippyCards game = new FlippyCards(5);
-
-		System.out.println(game);
-		System.out.println("Optimal score: " + game.calculateOptimalScore());
-		
-		game.flipCard(0);
-		game.flipCard(2);
-		System.out.println(game);
-		System.out.println("Face up total: " + game.faceUpTotal());
-		System.out.println("Face down total: " + game.faceDownTotal());
-	}
+	
 }
