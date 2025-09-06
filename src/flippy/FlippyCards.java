@@ -21,7 +21,7 @@ public class FlippyCards {
 	 * @param numCards number of cards in the game
 	 */
 	public FlippyCards(int numCards){
-		// TODO: Fill in good stuff here!
+		cards = new Card[numCards];
 	}
 
 	/**
@@ -30,8 +30,7 @@ public class FlippyCards {
 	 * @return the flippy card at the given index
 	 */
 	public Card getCard(int index) {
-		// TODO: Fill in good stuff here!
-		return null;
+		return cards[index];
 	}
 	
 	/**
@@ -41,7 +40,7 @@ public class FlippyCards {
 	 * @param cardIndex the index of the card to flip over
 	 */
 	public void flipCard(int cardIndex) {
-		//TODO: Fill in good stuff here!
+		cards[cardIndex].flip();
 	}
 
 	/**
@@ -51,9 +50,38 @@ public class FlippyCards {
 	 * @return the optimal score
 	 */
 	public int calculateOptimalScore(){
-		//TODO: Fill in good stuff here!
-		return 0;
-	}
+		int numOfredCards = 0;
+		int numOfblackCards = 0;
+		int max = 0;
+		int sum = 0;
+		int sumOfredCards = 0;
+		for(Card card : cards){
+			sum += card.getFlippyCardValue();
+			if (card.getFlippyCardValue()>max){
+				max = card.getFlippyCardValue();
+			}
+			if (card.isRedCard()){
+				numOfredCards ++;
+				sumOfredCards += card.getFlippyCardValue();
+			}
+			else{
+				numOfblackCards ++;
+			}
+		}
+		if (numOfredCards == 0){
+			return max;
+		}
+		else if(numOfblackCards == 0){
+			return sum;
+
+		}
+		else{
+			return sumOfredCards;
+
+		}
+			
+		}
+	
 
 
 	/**
@@ -63,7 +91,11 @@ public class FlippyCards {
 	 * @return the flippy card score for faceup cards
 	 */
 	public int faceUpTotal(){
-		//TODO: Fill in good stuff here!
+		for(Card card : cards){
+			if (card.isFaceUp()){
+				return card.getFlippyCardValue();
+			}
+		}
 		return 0;
 	}
 
@@ -74,10 +106,27 @@ public class FlippyCards {
 	 * @return the flippy card score for facedown cards
 	 */
 	public int faceDownTotal(){
-		//TODO: Fill in good stuff here!
+		for(Card card : cards){
+			if (!card.isFaceUp()){
+				return card.getFlippyCardValue();
+			}
+		}
 		return 0;
 	}
 
 
 	//TODO: Add a toString method here!
+	public String toString(){
+		String result = "";
+		for (int i = 0; i < cards.length; i++){
+			if (cards[i].isFaceUp()){
+				result += cards[i].toString() + " (face up)\n";
+			}
+			else{
+				result += "Card " + (i+1) + " (face down)\n";
+			}
+		}
+		return result;
+	}
+
 }

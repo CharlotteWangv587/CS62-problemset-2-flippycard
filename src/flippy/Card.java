@@ -169,4 +169,25 @@ public class Card {
 			return false;
 		}
 	}
+
+	public static void main(String[] args){
+		Card card1 = new Card(1, "hearts");
+		System.out.println(card1);
+		System.out.println("Card value: " + card1.getFlippyCardValue());
+		System.out.println("Is red? " + card1.isRedCard());
+		System.out.println("Is face up? " + card1.isFaceUp());
+		card1.flip();
+		System.out.println("Is face up? " + card1.isFaceUp());
+		
+		Card card2 = new Card(12, "spades");
+		System.out.println(card2);
+		System.out.println("Card value: " + card2.getFlippyCardValue());
+		System.out.println("Is red? " + card2.isRedCard());
+		System.out.println("Is face up? " + card2.isFaceUp());
+		card2.flip();
+		System.out.println("Is face up? " + card2.isFaceUp());
+		
+		Card card3 = new Card(15, "clovers");
+		System.out.println(card3);
+	}
 }
